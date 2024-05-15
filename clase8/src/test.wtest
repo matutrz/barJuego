@@ -1,0 +1,51 @@
+import example.*
+
+test "rellenar el vaso" {
+
+	var chopera = new Vaso()
+	
+	chopera.rellenar()
+
+	assert.that(chopera.contenido() == 100)
+
+}
+
+test "vaciar el vaso" {
+	
+	var copa = new Vaso()
+	
+	copa.rellenar()
+	copa.vaciar()
+	
+	assert.that(copa.contenido() == 0)
+}
+
+test "beber del vaso dos veces reduce su contenido a la mitad" {
+	
+	var vasoDeVidrio = new Vaso()
+	
+	vasoDeVidrio.rellenar()
+	
+	vasoDeVidrio.beber()
+	vasoDeVidrio.beber()
+	
+	assert.that(vasoDeVidrio.contenido() == 50)
+	 
+}
+
+test "se bebe una vez de la chopera y dos veces de la copa" {
+	
+	var copa = new Vaso()
+	var chopera = new Vaso()
+	
+	copa.rellenar()
+	chopera.rellenar()
+	
+	copa.beber()
+	copa.beber()
+	chopera.beber()
+	
+	assert.that(chopera.contenido() == 75 and copa.contenido() == 50)
+	
+	
+}
